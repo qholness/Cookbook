@@ -1,0 +1,7 @@
+North American foods
+
+Files hold common variable structure:
+    name: string titling the module
+    description: description of the cuisine
+    ingredients: list of prominent and relavent ingredients specific to the class
+    flavor: a list of prominet flavors

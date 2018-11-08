@@ -1,4 +1,11 @@
-from . import *
+from . import (
+    Chef,
+    Continents,
+    Ingredients,
+    Introduction,
+    Recipes,
+    Techniques
+)
 
 global units
 units = None
