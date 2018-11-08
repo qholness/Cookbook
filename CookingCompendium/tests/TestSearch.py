@@ -1,5 +1,4 @@
 import unittest
-import pprint
 from CookingCompendium.Compendium import ingredients, flavors
 
 class TestSearch(unittest.TestCase):
