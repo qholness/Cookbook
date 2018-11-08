@@ -8,4 +8,4 @@ flavors = [
     'sweet & sour',
     'bland'
 ]
-recipes = []
+recipes = {}

@@ -23,20 +23,28 @@ for state in dir(NorthAmerica.USA):
             stateObj.flavors,
             stateObj.ingredients
         )
-        for flavor, ing in zipped_vector:
-            ingredients = build_library(
-                ingredients, ing, NorthAmericaKey, UsaKey, stateObj.name,
-                stateObj.recipes)
-            flavors = build_library(
-                flavors, flavor, NorthAmericaKey, UsaKey, stateObj.name,
-                stateObj.recipes)
+        for flavor in stateObj.flavors:
+            recipes_by_flavor = stateObj.recipes.get(flavor)
+            if recipes_by_flavor is not None:
+                flavors = build_library(
+                    flavors, flavor, NorthAmericaKey, UsaKey, stateObj.name,
+                    recipes_by_flavor)
+        for ing in stateObj.ingredients:
+            recipes_by_ingredient = stateObj.recipes.get(ing)
+            if recipes_by_ingredient is not None:
+                ingredients = build_library(
+                    ingredients, ing, NorthAmericaKey, UsaKey, stateObj.name,
+                    recipes_by_ingredient)
 
 
-for flavor, ing in zip(
-    Asia.EastAsia.Japan.flavors,
-    Asia.EastAsia.Japan.ingredients
-):
-    ingredients = build_library(ingredients, ing, 'Asia', 'japan',
-        recipes=Asia.EastAsia.Japan.recipes)
-    flavors = build_library(flavors, flavor, 'Asia', 'japan',
-        recipes=Asia.EastAsia.Japan.recipes)
+for flavor in Asia.EastAsia.Japan.flavors:
+    recipes_by_flavor = Asia.EastAsia.Japan.recipes.get(flavor)
+    if recipes_by_flavor is not None:
+        flavors = build_library(flavors, flavor, 'Asia', 'japan',
+            recipes=recipes_by_flavor)
+for ing in Asia.EastAsia.Japan.ingredients:
+    recipes_by_ing = Asia.EastAsia.Japan.recipes.get(ing)
+    if recipes_by_ing is not None:
+        ingredients = build_library(ingredients, ing, 'Asia', 'japan',
+            recipes=recipes_by_ing)
+    

@@ -7,6 +7,9 @@ flavors = [
     'warm',
     'sour'
 ]
-recipes = [
-    'Ramen'
-]
+recipes = {
+    'warm' : {
+        'buckwheat': [
+            'ramen'
+        ]}
+}

@@ -9,7 +9,8 @@ flavors = [
     'bland'
 ]
 recipes = {
-    'potatoes': [
+    'bland' : {
+        'potatoes': [
         'funeral potatoes'
-    ]
+    ]}
 }
