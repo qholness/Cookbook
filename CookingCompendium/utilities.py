@@ -1,3 +1,8 @@
+ignore_in_dir = [
+    '__builtins__', '__cached__', '__doc__', '__file__', '__loader__',
+    '__name__', '__package__', '__path__', '__spec__', 'RegionName'
+]
+
 def build_library(
     lib, topic_key, continent_key, country_key, state_key=None, recipes=None):
     # Create a key for the ingredient if it doesn't exist

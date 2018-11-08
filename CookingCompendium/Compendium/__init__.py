@@ -1,50 +1,18 @@
-from CookingCompendium.Ingredients import Ingredients, Flavors
-from CookingCompendium.Continents import (
-    NorthAmerica,
-    Asia
-)
-from CookingCompendium.Continents.utilities import build_library
-from CookingCompendium.Ingredients import (
-    pepper
-)
+from CookingCompendium.Search import Ingredients, Flavors, Regions, States
+from CookingCompendium.Compendium.LoadUsa import LoadUsa
+from CookingCompendium.Compendium.LoadAsia import LoadAsia
 
 
-ignore_in_dir = ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__']
 ingredients = Ingredients()
 flavors = Flavors()
-NorthAmericaKey = 'NorthAmerica'
-UsaKey = 'USA'
+regions = Regions()
+states = States()
 
 # Add USA states to search set
-for state in dir(NorthAmerica.USA):
-    if state not in ignore_in_dir:
-        stateObj = getattr(NorthAmerica.USA, state)
-        zipped_vector = zip(
-            stateObj.flavors,
-            stateObj.ingredients
-        )
-        for flavor in stateObj.flavors:
-            recipes_by_flavor = stateObj.recipes.get(flavor)
-            if recipes_by_flavor is not None:
-                flavors = build_library(
-                    flavors, flavor, NorthAmericaKey, UsaKey, stateObj.name,
-                    recipes_by_flavor)
-        for ing in stateObj.ingredients:
-            recipes_by_ingredient = stateObj.recipes.get(ing)
-            if recipes_by_ingredient is not None:
-                ingredients = build_library(
-                    ingredients, ing, NorthAmericaKey, UsaKey, stateObj.name,
-                    recipes_by_ingredient)
+flavors, ingredients, regions, states = \
+    LoadUsa(ingredients, flavors, regions, states)
+flavors, ingredients = LoadAsia(ingredients, flavors)
 
 
-for flavor in Asia.EastAsia.Japan.flavors:
-    recipes_by_flavor = Asia.EastAsia.Japan.recipes.get(flavor)
-    if recipes_by_flavor is not None:
-        flavors = build_library(flavors, flavor, 'Asia', 'japan',
-            recipes=recipes_by_flavor)
-for ing in Asia.EastAsia.Japan.ingredients:
-    recipes_by_ing = Asia.EastAsia.Japan.recipes.get(ing)
-    if recipes_by_ing is not None:
-        ingredients = build_library(ingredients, ing, 'Asia', 'japan',
-            recipes=recipes_by_ing)
-    
+def get_state_recipes():
+    from CookingCompendium.Continents.NorthAmerica.USA import Regions

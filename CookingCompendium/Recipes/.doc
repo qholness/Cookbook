@@ -1,0 +1,11 @@
+Recipe
+    RecipeTechniqueSubclass
+        .units
+        .feeding_size
+        .recipe
+        .get_recipe()
+        .get_instructions()
+
+When building a .recipe list of dictionaries:
+    Use the per person amount when definining quantities that require that.
+    Things like baking soda, sugar, etc., are less dependent on feeding size.

@@ -1,15 +1,14 @@
 from . import (
     Chef,
     Continents,
-    Ingredients,
     Introduction,
     Recipes,
+    Search,
     Techniques
 )
 
 global units
 units = None
-
 valid_metric_input = [
     'm', 'i', 'metric', 'imperial'
 ]
@@ -18,11 +17,11 @@ def set_units(system):
     global units
     """Set flag for units. 1 == Imperial, 0 == Metric"""
     if system.lower() in ['m', 'metric']:
-        print("Setting units type to metric")
+        print("Setting units type to 'metric'.")
         units = 0
         return
     if system.lower() in ['i', 'imperial']:
-        print("Setting units type to imperial")
+        print("Setting units type to 'imperial'.")
         units = 1
 
 
@@ -38,6 +37,12 @@ def get_units_system():
             set_units(metric_in)
             break
         print("Invalid inputs\n")
+
+
+def __repr__():
+    global units
+    return """CookingCompendium
+    units: %s""" % ('metric' if units == 0 else 'imperial', )
 
 import os
 if os.environ.get("Cooking"):
