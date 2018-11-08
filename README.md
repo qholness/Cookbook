@@ -1,31 +1,22 @@
 # CookingCompendium
-Cooking compendium for nerds
+A nerds guide to a varied cuisine pallet
 
-Project Structure:
+CookingCompendium
+    Chef
+        - Helps with Searching for recipes. Can search via the various modules below or get a random suggestion
+    Compendium
+        - Builds the Searchable objects.
+    Continents
+        - Geographic objects which hold defining information and assists in Search
     Introduction
-    How to use it
-    Features?
+
     Recipes
-        By Culture
-        By Cuisine
-        By Effort
-        By Complexity
-        By Time
-        By Type
-    Features?
-        Simple SQLite Datatables?
-        Hard-coding?
-        What's easier to manage and contribute to?
-        What minimizes well?
-    
-
-Network mesh of ingredients that operate together.
-Discover recipes based on what you import.
-
-import Chicken
-import italian
-import GreenPepper
-import RedPepper
-
-^^ Based on imports, a list of Recipe Objects is created.
-Those recipe object, then are LinkedList to allow for programmers to learn, step-by-step, various recipes.
+        - Recipe stash. Uses Techniques to subclass ways of making things.
+    Search
+        - W/ Chef, searches through Compendium objects for specific references
+    Techniques
+        - The methods of making things (think: Cast Iron, Crockpot, BBQ)
+    tests
+        - Good coders test their code, right?
+    Units
+        - Units of measurement
